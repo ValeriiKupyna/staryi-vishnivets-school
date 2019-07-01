@@ -5,7 +5,9 @@
 </template>
 
 <script>
+    import './assets/styles/index.css';
     import MainContainer from './components/MainContainer/MainContainer';
+
 
     export default {
         name: 'App',
@@ -14,7 +16,3 @@
         }
     }
 </script>
-
-<style>
-    /*@import "main.scss";*/
-</style>
