@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <Header/>
-        <v-content class="pt-3">
+        <v-content fluid>
             <router-view></router-view>
         </v-content>
     </v-app>

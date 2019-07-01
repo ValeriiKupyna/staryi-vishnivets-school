@@ -4,5 +4,14 @@ export const HEADER_TEXT = {
 
 export const ROUTER_LABEL = {
     teachers: 'Викладачі',
-    events: 'Події',
+    ourSchool: 'Наша Школа',
+    schoolHistory: 'Історія',
+    schoolAchievements: 'Наші досягнення',
+};
+
+export const ROUTER_ICONS = {
+    teachers: 'people',
+    ourSchool: 'account_balance',
+    schoolHistory: 'history',
+    schoolAchievements: 'grade',
 };

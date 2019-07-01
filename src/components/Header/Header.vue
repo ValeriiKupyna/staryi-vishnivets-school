@@ -15,28 +15,32 @@
                        <v-list-tile-title v-text="route.label"></v-list-tile-title>
                    </v-list-tile-content>
 
-               </v-list-tile>
-           </v-list>
+                </v-list-tile>
+            </v-list>
        </v-navigation-drawer>
-       <v-toolbar app dark color="blue">
-           <v-toolbar-side-icon
-                   class="hidden-md-and-up"
-                   @click="drawer = !drawer"/>
-           <v-toolbar-title to="'/" class="pointer">
-               <router-link tag="span" class="pointer" to="/">
-                   {{ text.title }}
-               </router-link>
-           </v-toolbar-title>
-           <v-spacer></v-spacer>
-           <v-toolbar-items class="hidden-sm-and-down">
-               <v-btn
-                       v-for="route in routes"
-                       :key="route.name"
-                       :to="route.path"
-                       flat>{{ route.label }}</v-btn>
-           </v-toolbar-items>
-       </v-toolbar>
-   </div>
+
+        <v-toolbar app dark color="blue">
+            <v-toolbar-side-icon
+                    class="hidden-md-and-up"
+                    @click="drawer = !drawer"/>
+            <v-toolbar-title to="'/" class="pointer">
+                <router-link tag="span" class="pointer" to="/">
+                    {{ text.title }}
+                </router-link>
+            </v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-items class="hidden-sm-and-down">
+                <v-btn
+                        v-for="route in routes"
+                        :key="route.name"
+                        :to="route.path"
+                        flat>
+                    <v-icon left>{{ route.icon }}</v-icon>
+                    {{ route.label }}
+                </v-btn>
+            </v-toolbar-items>
+        </v-toolbar>
+    </div>
 </template>
 
 
