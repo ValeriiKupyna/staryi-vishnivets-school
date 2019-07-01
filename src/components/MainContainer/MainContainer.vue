@@ -1,12 +1,9 @@
 <template>
     <v-app>
-        <Header />
-        <v-content>
-            <v-container fluid>
-                <router-view></router-view>
-            </v-container>
+        <Header/>
+        <v-content class="pt-3">
+            <router-view></router-view>
         </v-content>
-        <v-footer app></v-footer>
     </v-app>
 </template>
 
