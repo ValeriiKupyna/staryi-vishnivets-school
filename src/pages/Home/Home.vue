@@ -1,10 +1,15 @@
 <template>
-    <h1>Home</h1>
+    <HomeCarousel />
 </template>
 
 
 <script>
+    import HomeCarousel from './components/HomeCarousel/HomeCarousel';
+
     const Home = {
+        components: {
+            HomeCarousel,
+        }
     };
 
     export default Home;

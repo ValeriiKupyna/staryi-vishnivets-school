@@ -18,7 +18,7 @@
                </v-list-tile>
            </v-list>
        </v-navigation-drawer>
-       <v-toolbar>
+       <v-toolbar app dark color="blue">
            <v-toolbar-side-icon
                    class="hidden-md-and-up"
                    @click="drawer = !drawer"/>
