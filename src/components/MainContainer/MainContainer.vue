@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <Header/>
-        <v-content class="pt-3">
+        <v-content fluid class="gradient">
             <router-view></router-view>
         </v-content>
     </v-app>
@@ -13,7 +13,8 @@
 
     const MainContainer = {
         data: () => ({
-            drawer: null
+            drawer: null,
+
         }),
         components: {
             Header,
@@ -22,3 +23,9 @@
 
     export default MainContainer;
 </script>
+
+<style>
+    .gradient {
+        background: linear-gradient(to top, #dee9fb, #f3f9ff);
+    }
+</style>
