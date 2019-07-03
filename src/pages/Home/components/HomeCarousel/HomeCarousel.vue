@@ -29,7 +29,7 @@
 
 <style scoped>
     .carousel-item {
-        height: 100%
+        height: calc(100vh - 64px)
     }
 
     .description {

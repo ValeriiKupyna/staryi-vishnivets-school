@@ -111,8 +111,8 @@ const school = {
                     id: 0,
                     title: 'Конкурс газет з інформатики',
                     date: {
-                        from: '02/06/19',
-                        to: '12/06/19',
+                        from: 'Wed Jul 05 2019 09:13:30 GMT+0300 (Eastern European Summer Time)',
+                        to: 'Wed Jul 07 2019 09:13:30 GMT+0300 (Eastern European Summer Time)',
                     },
                     achievements: [
                         {
@@ -131,8 +131,8 @@ const school = {
                     id: 1,
                     title: 'Чемпіонат з клавіатурного тренажеру «Вправні руки»',
                     date: {
-                        from: '12/06/19',
-                        to: '13/06/19',
+                        from: 'Wed Jul 05 2019 09:13:30 GMT+0300 (Eastern European Summer Time)',
+                        to: 'Wed Jul 06 2019 09:13:30 GMT+0300 (Eastern European Summer Time)',
                     },
                     achievements: [
                         {
