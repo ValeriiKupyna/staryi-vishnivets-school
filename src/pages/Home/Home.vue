@@ -7,6 +7,9 @@
     import HomeCarousel from './components/HomeCarousel/HomeCarousel';
 
     const Home = {
+        mounted() {
+            this.$store.dispatch('loadHomeData');
+        },
         components: {
             HomeCarousel,
         }

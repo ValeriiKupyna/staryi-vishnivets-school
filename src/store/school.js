@@ -1,165 +1,70 @@
+import {getHomeInfo} from "../services/api/home/home";
+import {getSchoolDetails} from "../services/api/school/schoolDetails";
+import {getSchoolAchievements} from "../services/api/school/schoolAchievements";
+
+
 const school = {
     state: {
-        welcomeData: [
-            {
-                id: '1',
-                title: 'Школа',
-                text: 'Школа Школа Школа',
-                imgUrl: 'http://vyshnivetska-gromada.gov.ua/wp-content/uploads/2017/11/Рисунок3.jpg',
-            },
-            {
-                id: '2',
-                title: 'Гімн',
-                text: 'Школа Школа Школа Школа',
-                imgUrl: 'http://vyshnivetska-gromada.gov.ua/wp-content/uploads/2017/11/IMG_20180503_105434-1024x768.jpg',
-            },
-            {
-                id: '3',
-                title: 'Гімн школи',
-                text: 'Школа Школа Школа Школа Школа',
-                imgUrl: 'http://vyshnivetska-gromada.gov.ua/wp-content/uploads/2017/11/32690285_607411639622197_8029545525713829888_n-300x225.jpg',
-            },
-        ],
-        history: {
-            title: 'Історія школи',
-            content: '1984 року в центрі села Старий Вишнівець розпочалось будівництво школи на 364 місця.\n' +
-                '\n' +
-                '       1 вересня 1987 року пролунав перший шкільний дзвінок, сповістивши про початок життя нової восьмирічної школи… У триповерховій споруді добре обладнані кабінети фізики, хімії, біології, української мови, іноземної мови, математики, географії, трудового навчання, майстерню, великий спортзал та вишукану актову залу. Споруджено ігровий та спортивний майданчики, великий стадіон.\n' +
-                '\n' +
-                '       Забилось, запульсувало серце навчального закладу, наповняючи Старовишнівецьку землю життєдайною силою знання і мудрості. Ожила, заспівала, задзвеніла школа і гостинно відчинила свої двері, запрошуючи дітей у просторі класи. Привітно зустрів своїх учнів директор школи Пелех Борис Гнатович.\n' +
-                '\n' +
-                '       У 1989 році директором школи призначено Жуковського Василя Івановича, який завжди був зразком стриманості, поміркованості, принциповості.\n' +
-                '\n' +
-                '       1 вересня 1991 року на Свято першого дзвоника вперше запрошено священика, який спільною молитвою благословив усіх учнів та вчителів школи.\n' +
-                '\n' +
-                '       У 1994 році шкільний хор отримав звання «зразковий», керівник Алла Степанівна Кошак.\n' +
-                '\n' +
-                'Важливою подією у 2005 році було те, що школу реорганізовано з І-ІІ ступенів у школу І-ІІІ ступенів.\n' +
-                '\n' +
-                '       У 2012 році на посаду директора школи призначено вчителя англійської мови Миндзар Ілони Миколаївни. Це перша жінка, яка очолила педагогічний колектив за час існування школи в селі.\n' +
-                '\n' +
-                '      В березні 2014 р. вчителями та учнями в школі створено музей «Батьківська хата», де гості можуть познайомитись з культурою та традиціями українців і свого села зокрема.\n' +
-                '\n' +
-                '    Літа спливають, йдуть у небуття. Скільки перших і останніх дзвоників пролунало на подвір’ї нашої школи, скільки поколінь випускників вийшли у доросле життя по рушниковій стежці, що починається на її порозі. А скільки ще попереду цікавих миттєвостей шкільного життя,  а це дає надію на майбутнє, на нові перспективи.'
-        },
-        emblem: {
-            imgUrl: 'http://static.klasnaocinka.com.ua/uploads/editor/11451/601523/sitepage_30/images/img_20171129_155943.jpg',
-            title: 'Герб'
-        },
-        mainContent: 'Ми працюєм на майбутнє,\n' +
-            '\n' +
-            'А не на день, і не на час.\n' +
-            '\n' +
-            'Прапор і сонце символізують школу в Україні. Річка, яка переходить у вишитий рушник – місце знаходження; дорога, яка веде в життя – вшанування національних традицій.\n' +
-            '\n' +
-            'Цвіт вишні символізує Вишнівецький край. А зелений фон – життя, спокій, мир.\n' +
-            '\n' +
-            '«А над річкою Горинню небо ясне, небо синє, у вишневім цвіті школа там стоїть…»',
-        anthemOfUkraine: {
-            title: 'Гимн',
-            text: 'Біля річки край дороги\n' +
-                '\n' +
-                'Де лунає веселий сміх,\n' +
-                '\n' +
-                'Йдуть школярики до школи-\n' +
-                '\n' +
-                'Найріднішої з усіх!\n' +
-                '\n' +
-                'Світ впізнань   для нас відкрився,\n' +
-                '\n' +
-                'Хоровий лунає спів.\n' +
-                '\n' +
-                'Є із кого приклад брати-\n' +
-                '\n' +
-                'З наших рідних вчителів!\n' +
-                '\n' +
-                'П-в:\n' +
-                '\n' +
-                'Школа – це наша колиска,\n' +
-                '\n' +
-                'Школа – це наша сім’я,\n' +
-                '\n' +
-                'В школі ростем й розквітаєм,\n' +
-                '\n' +
-                'В школі отримуємо знання.\n' +
-                '\n' +
-                ' \n' +
-                '\n' +
-                'У вишневому цвітінні,\n' +
-                '\n' +
-                'В школі правди і добра\n' +
-                '\n' +
-                'Ми з тобою будем нині\n' +
-                '\n' +
-                'Перешкоди всі дола.\n' +
-                '\n' +
-                'Школо рідна! Ти казкова!\n' +
-                '\n' +
-                'І для нас ти другий дім\n' +
-                '\n' +
-                'Старовишнівецькій школі\n' +
-                '\n' +
-                'Ми співаємо цей гімн'
-        },
-        schoolAchievements: {
-            title: 'Наші досягнення',
-            description: 'З метою залучення учнів до активної пізнавальної діяльності, розширення їхнього кругозору, пробудження в учнів інтересу до інформатики та відповідно до наказу по школі про предметні тижні з 13листопада по 17 листопада  2017 року пройшов Тиждень інформатики (учитель Тетяна Анатоліївна Неділь), під час якого було проведено багато цікавих заходів, а саме: учнівська конференція, розв\'язування логічних завдань,  конкурс газет з інформатики, конкурс на кращий малюнок, кросворд, ребус, загадку, вірш, що має відношення до інформатики, чемпіонат  з клавіатурного тренажеру «Вправні руки», конкурс на краще створення презентації з анімаціями,  конкурс ерудитів, творчий конкурс на тему «Якими ви бачите комп’ютери в майбутньому», конкурс «Придумай назву», гра «П’ятнадцятка».\n' +
-                '\n' +
-                'Отож, переможцями у відповідних конкурсах стали:',
-            achievements: [
-                {
-                    id: 0,
-                    title: 'Конкурс газет з інформатики',
-                    date: {
-                        from: 'Wed Jul 05 2019 09:13:30 GMT+0300 (Eastern European Summer Time)',
-                        to: 'Wed Jul 07 2019 09:13:30 GMT+0300 (Eastern European Summer Time)',
-                    },
-                    achievements: [
-                        {
-                            id: 0,
-                            title: 'І місце',
-                            description: 'Учні 3-А , 8 класів',
-                        },
-                        {
-                            id: 1,
-                            title: 'ІІ місце',
-                            description: 'Учні 4 класу',
-                        }
-                    ]
-                },
-                {
-                    id: 1,
-                    title: 'Чемпіонат з клавіатурного тренажеру «Вправні руки»',
-                    date: {
-                        from: 'Wed Jul 05 2019 09:13:30 GMT+0300 (Eastern European Summer Time)',
-                        to: 'Wed Jul 06 2019 09:13:30 GMT+0300 (Eastern European Summer Time)',
-                    },
-                    achievements: [
-                        {
-                            id: 0,
-                            title: 'І місце',
-                            description: '9 клас – Левенець Юрій',
-                        },
-                    ]
-                }
-            ]
-
-        }
-
+        welcomeData: {},
+        history: {},
+        emblem: {},
+        mottoOfTheSchool: '',
+        anthemOfUkraine: {},
+        schoolAchievements: {}
     },
     getters: {
         welcome(state) {
-            return state.welcomeData;
+            return state.welcomeData || [];
         },
-        schoolInfo({emblem, mainContent, anthemOfUkraine}) {
-            return {emblem, mainContent, anthemOfUkraine}
+        schoolInfo({emblem, mottoOfTheSchool, anthemOfUkraine}) {
+            return {emblem, mottoOfTheSchool, anthemOfUkraine};
         },
         schoolHistory(state) {
-            return state.history;
+            return state.history || {};
         },
         schoolAchievements(state) {
-            return state.schoolAchievements;
+            return state.schoolAchievements || {};
         }
+    },
+    actions: {
+        loadHomeData: async ({commit}) => {
+            try {
+                const homeData = await getHomeInfo();
+                commit('setHomeData', homeData)
+            } catch (e) {
+                commit('setHomeData', [])
+            }
+        },
+        loadSchoolDetails: async ({commit}) => {
+            try {
+                const details = await getSchoolDetails();
+                commit('setDetails', details)
+            } catch (e) {
+                commit('setDetails', null)
+            }
+        },
+        getSchoolAchievements: async ({commit}) => {
+            try {
+                const details = await getSchoolAchievements();
+                commit('setAchievements', details)
+            } catch (e) {
+                commit('setAchievements', null)
+            }
+        },
+    },
+    mutations: {
+        setHomeData(state, payload) {
+            state.welcomeData = payload;
+        },
+        setDetails(state, payload = {}) {
+            state.anthemOfUkraine = payload.anthemOfUkraine;
+            state.emblem = payload.emblem;
+            state.history = payload.history;
+            state.mottoOfTheSchool = payload.mottoOfTheSchool;
+        },
+        setAchievements(state, payload) {
+            state.schoolAchievements = payload;
+        },
     }
 };
 

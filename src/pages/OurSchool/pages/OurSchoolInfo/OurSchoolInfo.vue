@@ -9,7 +9,7 @@
                 />
             </v-flex>
             <v-flex sm8>
-                <p class="pre subheading font-weight-medium blue--text ">{{ schoolInfo.mainContent }}</p>
+                <p class="pre subheading font-weight-medium blue--text ">{{ schoolInfo.mottoOfTheSchool }}</p>
             </v-flex>
         </v-layout>
         <v-layout row wrap>

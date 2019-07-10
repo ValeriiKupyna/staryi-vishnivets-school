@@ -29,6 +29,9 @@
     import { OurSchoolRoute } from '../../router/OurSchoolRoute';
 
     const OurSchool = {
+        mounted() {
+            this.$store.dispatch('loadSchoolDetails')
+        },
         data() {
             return {
                 tabs: OurSchoolRoute.children,

@@ -12,10 +12,9 @@
         </v-layout>
         <v-layout row wrap>
             <v-flex>
-                <AchievementsList :achievements="achievements.achievements" />
+                <AchievementsList v-if="achievements.achievements && achievements.achievements.length" :achievements="achievements.achievements" />
             </v-flex>
         </v-layout>
-
     </v-container>
 </template>
 
@@ -23,6 +22,9 @@
     import AchievementsList from './components/AchievementsList/AchievementsList';
 
     const SchoolAchievements = {
+        beforeMount() {
+            this.$store.dispatch('getSchoolAchievements');
+        },
         computed: {
             achievements() {
                 return this.$store.getters.schoolAchievements;
