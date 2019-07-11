@@ -7,7 +7,7 @@
                multiple
                ref="fileInput"
                :name="uploadFieldName"
-               accept="image/*"
+               :accept="accept"
                @change="filesChange($event.target.name, $event.target.files)"
                class="input-file">
         <p v-if="fileCount === 0">
@@ -40,12 +40,16 @@
                 type: String,
                 default: 'file',
             },
+            accept: {
+                type: String,
+                default: '*'
+            }
 
         },
         data() {
             return {
                 fileCount: 0,
-                fileInput: null
+                fileInput: null,
             }
         },
         methods: {
@@ -61,13 +65,11 @@
                 if (!fileList.length) return;
                 this.fileCount = fileList.length;
 
-                Array
-                    .from(Array(fileList.length).keys())
-                    .map(x => {
-                        formData.append(fieldName, fileList[x], fileList[x].name);
-                    });
+                Array.from(fileList).forEach((file) => {
+                    formData.append(fieldName, file, file.name);
+                });
 
-                this.onFileLoaded(formData);
+                this.onFileLoaded(formData.getAll(this.uploadFieldName));
             }
         },
     };
